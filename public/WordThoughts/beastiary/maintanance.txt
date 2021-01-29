@@ -1,0 +1,36 @@
+Daily Maintenance Activities:
+-check trap status
+-clear bodies from trap (if applicable)
+-check trap camouflage ratings (level 1)
+-inspect video screens for  lens smudges (NOTE: updated procedure: for lens smudge check lens itself rather than possibly non working screen)
+
+
+Weekly Maintenance Activities:
+-check trap springs and tensions related mechanisms (if applicable)
+-reset trap springs and tension related mechanisms (if needed)
+-check trap camouflage ratings (level 2)
+
+Monthly Maintenance Activities:
+-reset trap springs and tension related mechanisms (if applicable)
+-check trap camouflage ratings (level 3)
+-inspect electrical areas for shorts or sparks (if applicable)
+-inspect camera functionality
+
+Yearly Maintenance Activities:
+-perform red/blue team testing (if no red team available just blue team)
+-sharpen and replace sticks (if applicable)
+-replace wooden elements
+- replace ropes (if applicable)
+
+Decennialy Maintenance Activities:
+-replace sp
+-replace gunpowder (if applicable)
+-re-excavate pits (if applicable)
+
+Centenarly Maintenance Activities:
+-replace wiring (if applicable)
+-replace chipsets (if applicable)
+-replace metal parts, including trap springs and tension related mechanisms, trap bodies and interlocking parts
+
+
+
