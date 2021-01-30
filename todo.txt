@@ -1,4 +1,4 @@
--add typescript
+-install emotion when its jsx time. tsx. whatever.
 -port beastiary to react (maybe emotion styling?)
 -make it so it takes in a keyword and grabs BOTH the file list from the keyword and the base level stuff
 -make a yellow info token that's just harry potter and discworld 
