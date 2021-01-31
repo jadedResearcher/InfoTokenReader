@@ -17,6 +17,7 @@ export default class FileUtil{
     }
 
     fetchJSON= ()=>{
+        /*
         const Http = new XMLHttpRequest();
         const url=this.folder_index;
         Http.open("GET", url);
@@ -28,7 +29,8 @@ export default class FileUtil{
             that.folder_json = JSON.parse{Http.responseText};
             //pickShitPostBasedOnSeed(19, folder_json);
             }
-        }
+        }*/
+        console.warn("TODO fetchJSON typescript is weird");
     }
 
 }
