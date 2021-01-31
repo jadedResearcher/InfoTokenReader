@@ -1,4 +1,13 @@
--install emotion when its jsx time. tsx. whatever.
--port beastiary to react (maybe emotion styling?)
+-make WordThoughts file, it calls multiple WordThought (instead of shitpost root doing that directly)
+    -takes in a file name, loads content (for now mock it)
+    -displays it chunked up (no random styling yet)
+
+-print out json loaded from network
+-pick a word from the file lists, pass it to WordThoughts
+--add a class to FileUtil to load up a file's contents
+
+--do images
+-so random sound on click
+
 -make it so it takes in a keyword and grabs BOTH the file list from the keyword and the base level stuff
 -make a yellow info token that's just harry potter and discworld 

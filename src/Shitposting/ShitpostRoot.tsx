@@ -9,7 +9,7 @@ const TestDiv = styled.div `
 `;
 
 function ShitpostRoot() {
-  const test_words = ["hello world","its jr here","whatup"];
+  const test_words = ["hello world","its jr here","whatup","the root shouldn't have these","a wordthoughts controller should"];
   const test_images = ["PicturesThoughts/beastiary/4.png"];
   const [rand, setRand] = useState<SeededRandom>(new SeededRandom(19));
 
@@ -25,12 +25,15 @@ function ShitpostRoot() {
     setRand(new SeededRandom(seed));
   },[seed, setRand]);
 
-
+  const calcClick = (index:number, length: number) =>{
+    console.log("JR NOTE: calculating if shold click", Math.floor(length/3), index,Math.floor(length/3) % index === 0)
+    return (Math.floor(length/3) % index === 0);
+  }
 
   return (
     <Fragment>
       {test_words.map((word, index) => (
-        <WordThought clickAction={clickAction} key={"word"+index} text={word} rand={rand}></WordThought>
+        <WordThought shouldClick={calcClick(index, test_words.length)} clickAction={calcClick(index, test_words.length)?clickAction: undefined} key={"word"+index} text={word} rand={rand}></WordThought>
     ))}
     {test_images.map((src, index) => (
         <PictureThought key={"pic"+index} src={src} rand={rand}></PictureThought>
