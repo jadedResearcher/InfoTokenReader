@@ -24,13 +24,14 @@ const ClickableBullshit = styled.div<ClickableProps>`
 
 type WordControllerProps = {
   rand: SeededRandom,
-  text: string
+  fileList: string[],
   clickAction?: Action;
 }
 
 const WordThoughtController = (props:WordControllerProps)=> {
   const chunks:string[] = [];
-  const {text, rand, clickAction} = props;
+  const {fileList, rand, clickAction} = props;
+  let text = "";
 
   const calcClick = (index:number, length: number) =>{
     return (Math.floor(length/3) % index === 0);
@@ -47,6 +48,7 @@ const WordThoughtController = (props:WordControllerProps)=> {
     }
   }
 
+  //TODO only do this after file loaded
   chunkText();
 
   return (
