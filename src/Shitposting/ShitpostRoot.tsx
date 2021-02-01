@@ -25,7 +25,7 @@ function ShitpostRoot() {
   };
 
   const fileUtilCallback = (word_list:string[], pic_list:string[], sound_list:string[])=>{
-    console.log("file util says its done");
+    console.log("file util says its done", word_list.length, word_list);
     setWordFileList(word_list);
     setPicFileList(pic_list);
     setSoundFileList(sound_list);
@@ -38,7 +38,7 @@ function ShitpostRoot() {
 
   useEffect(() =>{
     console.log("JR NOTE: using effect to change rand", seed);
-    rand.internal_seed = seed;
+    setRand(new SeededRandom(rand.getRandomNumberBetween(0,4294967296)));
   },[seed]);
 
 

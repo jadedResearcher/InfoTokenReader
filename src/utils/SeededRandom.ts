@@ -20,7 +20,7 @@ export default class SeededRandom{
    }
 
    getRandomElementFromArray=(array: any[])=>{
-       return array[this.getRandomNumberBetween(0, array.length = 1)];
+       return array[this.getRandomNumberBetween(0, array.length -1)];
    }
 }
 

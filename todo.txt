@@ -1,10 +1,6 @@
--make WordThoughts file, it calls multiple WordThought (instead of shitpost root doing that directly)
-    -takes in a file name, loads content (for now mock it)
-    -displays it chunked up (no random styling yet)
+bUG: text IS working but isn't randomizing what file was chosen on click
 
--print out json loaded from network
--pick a word from the file lists, pass it to WordThoughts
---add a class to FileUtil to load up a file's contents
+
 
 --do images
 -so random sound on click

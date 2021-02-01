@@ -28,7 +28,11 @@ export default class FileUtil{
                 console.log("JR NOTE: got response");
                 that.folder_json = JSON.parse(Http.responseText)["folders"];
                 console.log("JR NOTE: folder json", that.folder_json);
-                that.callback(that.folder_json[word_thoughts]["files"],that.folder_json[image_thoughts]["files"],that.folder_json[audio_thoughts]["files"]);
+                const words = that.folder_json[word_thoughts]["folders"][that.search_term]["files"];
+                const pics = that.folder_json[image_thoughts]["folders"][that.search_term]["files"];
+                const audio = that.folder_json[audio_thoughts]["folders"][that.search_term]["files"];
+
+                that.callback(words, pics, audio);
             }
         }
     }

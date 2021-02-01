@@ -41,20 +41,20 @@ const WordThoughtController = (props:WordControllerProps)=> {
   
   
 const shitPostWords =()=>{
-  console.log("shit post words", fileList);
+  console.log("shit post words", fileList.length, fileList);
+  rand.nextDouble();//eat rand
   const file = rand.getRandomElementFromArray(fileList);
   console.log("JR NOTE: file chosen is", file);
   const Http = new XMLHttpRequest();
   const url=root + word_thoughts + "/" +search_term + "/" + file;
   Http.open("GET", url);
   Http.send();
-
-      Http.onreadystatechange = function() {
-          if((this.readyState ==4 && this.status == 200)){
-           text = Http.responseText;
-           chunkText();
-          }
+  Http.onreadystatechange = function() {
+      if((this.readyState ==4 && this.status == 200)){
+        text = Http.responseText;
+        chunkText();
       }
+  }
 }
 
   const chunkText = () =>{
