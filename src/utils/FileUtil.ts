@@ -10,7 +10,6 @@ export default class FileUtil{
     callback: FileCallback;
 
     constructor(rand: SeededRandom, callback: FileCallback, search_term:string) {
-        console.log("JR NOTE: creating a file util ");
         this.rand = rand;
         this.search_term = search_term;
         this.callback = callback;
@@ -18,7 +17,6 @@ export default class FileUtil{
     }
 
     fetchJSON= ()=>{
-        console.log("JR NOTE: fetching json");
         const Http = new XMLHttpRequest();
         const url=folder_index;
         Http.open("GET", url);
