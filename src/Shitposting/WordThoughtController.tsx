@@ -50,7 +50,8 @@ const WordThoughtController = (props:WordControllerProps)=> {
 
   //TODO only do this after file loaded
   chunkText();
-
+  //TODO this is currently broken waiting on online file shit
+  console.log("JR NOTE: TODO",fileList);
   return (
     <Fragment>
       {chunks.map((word, index) => (

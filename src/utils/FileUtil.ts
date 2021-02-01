@@ -1,6 +1,6 @@
 import { callbackify } from 'util';
 import SeededRandom from './SeededRandom';
-import {Action} from './Types';
+import {FileCallback} from './Types';
 export default class FileUtil{
     rand: SeededRandom;
     root:string = "http://knucklessux.com/PuzzleBox/Bullshit/";
@@ -11,9 +11,10 @@ export default class FileUtil{
     folder_json:any;
     search_term: string;
     word_file_list:string[] = [];
-    callback: Action;
+    callback: FileCallback;
 
-    constructor(rand: SeededRandom, callback: Action, search_term:string) {
+    constructor(rand: SeededRandom, callback: FileCallback, search_term:string) {
+        console.log("JR NOTE: creating a file util ");
         this.rand = rand;
         this.search_term = search_term;
         this.callback = callback;
@@ -21,7 +22,7 @@ export default class FileUtil{
     }
 
     fetchJSON= ()=>{
-        
+        console.log("JR NOTE: fetching json");
         const Http = new XMLHttpRequest();
         const url=this.folder_index;
         Http.open("GET", url);
@@ -30,8 +31,10 @@ export default class FileUtil{
 
         Http.onreadystatechange = function() {
             if((this.readyState ==4 && this.status == 200)){
-            that.folder_json = JSON.parse{Http.responseText};
-            that.callback();
+                console.log("JR NOTE: got response");
+                that.folder_json = JSON.parse(Http.responseText)["folders"];
+                console.log("JR NOTE: folder json", that.folder_json);
+                that.callback(that.folder_json[that.word_thoughts],that.folder_json[that.image_thoughts],that.folder_json[that.audio_thoughts]);
             }
         }
     }
