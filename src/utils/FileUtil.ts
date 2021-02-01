@@ -1,13 +1,9 @@
 import { callbackify } from 'util';
 import SeededRandom from './SeededRandom';
 import {FileCallback} from './Types';
+import {word_thoughts, image_thoughts, audio_thoughts, folder_index} from './consts';
 export default class FileUtil{
     rand: SeededRandom;
-    root:string = "http://knucklessux.com/PuzzleBox/Bullshit/";
-    folder_index:string = this.root + "list.php";
-    word_thoughts:string = "WordThoughts";
-    audio_thoughts:string = "AudioThoughts";
-    image_thoughts:string = "PictureThoughts";
     folder_json:any;
     search_term: string;
     word_file_list:string[] = [];
@@ -24,7 +20,7 @@ export default class FileUtil{
     fetchJSON= ()=>{
         console.log("JR NOTE: fetching json");
         const Http = new XMLHttpRequest();
-        const url=this.folder_index;
+        const url=folder_index;
         Http.open("GET", url);
         Http.send();
         const that = this;
@@ -34,7 +30,7 @@ export default class FileUtil{
                 console.log("JR NOTE: got response");
                 that.folder_json = JSON.parse(Http.responseText)["folders"];
                 console.log("JR NOTE: folder json", that.folder_json);
-                that.callback(that.folder_json[that.word_thoughts],that.folder_json[that.image_thoughts],that.folder_json[that.audio_thoughts]);
+                that.callback(that.folder_json[word_thoughts]["files"],that.folder_json[image_thoughts]["files"],that.folder_json[audio_thoughts]["files"]);
             }
         }
     }

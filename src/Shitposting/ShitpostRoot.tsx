@@ -47,7 +47,7 @@ function ShitpostRoot() {
   }else{
   return (
       <Fragment>
-        <WordThoughtController rand={rand} clickAction={clickAction} fileList={word_file_list}></WordThoughtController>
+        <WordThoughtController search_term={search_term} rand={rand} clickAction={clickAction} fileList={word_file_list}></WordThoughtController>
       {test_images.map((src, index) => (
           <PictureThought key={"pic"+index} src={src} rand={rand}></PictureThought>
       ))}

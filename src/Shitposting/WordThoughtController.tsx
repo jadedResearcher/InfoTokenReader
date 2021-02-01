@@ -1,8 +1,9 @@
 import SeededRandom from '../utils/SeededRandom';
 import styled from '@emotion/styled';
-import {Fragment} from 'react';
+import {Fragment, useEffect, useState} from 'react';
 import WordThought from "./WordThought";
 import { Action } from '../utils/Types';
+import {root, word_thoughts} from '../utils/consts';
 
 const Bullshit = styled.div `
   color: blue;
@@ -25,33 +26,55 @@ const ClickableBullshit = styled.div<ClickableProps>`
 type WordControllerProps = {
   rand: SeededRandom,
   fileList: string[],
+  search_term: string,
   clickAction?: Action;
 }
 
 const WordThoughtController = (props:WordControllerProps)=> {
-  const chunks:string[] = [];
-  const {fileList, rand, clickAction} = props;
+  const [chunks,setChunks] = useState<string[]>([]);
+  const {fileList, rand, clickAction, search_term} = props;
   let text = "";
 
   const calcClick = (index:number, length: number) =>{
     return (Math.floor(length/3) % index === 0);
   }
+  
+  
+const shitPostWords =()=>{
+  console.log("shit post words", fileList);
+  const file = rand.getRandomElementFromArray(fileList);
+  const Http = new XMLHttpRequest();
+  const url=root + word_thoughts + "/" + file;
+  Http.open("GET", url);
+  Http.send();
+
+      Http.onreadystatechange = function() {
+          if((this.readyState ==4 && this.status == 200)){
+           text = Http.responseText;
+           console.log("i got contents ", text)
+           chunkText();
+          }
+      }
+}
 
   const chunkText = () =>{
     rand.nextDouble();//eat a seed;
+    let tmp_chunks = [];
     const num_chunks = rand.getRandomNumberBetween(5,19);
     let size = Math.floor(text.length/num_chunks);
 
     for (let o = 0; o < text.length -1; o += size) {
-        chunks.push(text.substr(o, size));
-        size = rand.getRandomNumberBetween(19,Math.floor(text.length/num_chunks));
+      tmp_chunks.push(text.substr(o, size));
+      size = rand.getRandomNumberBetween(19,Math.floor(text.length/num_chunks));
     }
+    setChunks(tmp_chunks);
   }
 
-  //TODO only do this after file loaded
-  chunkText();
-  //TODO this is currently broken waiting on online file shit
-  console.log("JR NOTE: TODO",fileList);
+  useEffect(() => {
+    console.log("shit post words use effect");
+    shitPostWords();
+  },[]);
+
   return (
     <Fragment>
       {chunks.map((word, index) => (
