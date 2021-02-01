@@ -1,6 +1,6 @@
 import SeededRandom from '../utils/SeededRandom';
 import styled from '@emotion/styled';
-import WordThought from "./WordThought";
+import WordThoughtController from "./WordThoughtController";
 import PictureThought from "./PictureThought";
 import {useState, useEffect, Fragment} from 'react';
 
@@ -9,7 +9,6 @@ const TestDiv = styled.div `
 `;
 
 function ShitpostRoot() {
-  const test_words = ["hello world","its jr here","whatup","the root shouldn't have these","a wordthoughts controller should"];
   const test_images = ["PicturesThoughts/beastiary/4.png"];
   const [rand, setRand] = useState<SeededRandom>(new SeededRandom(19));
 
@@ -25,16 +24,11 @@ function ShitpostRoot() {
     setRand(new SeededRandom(seed));
   },[seed, setRand]);
 
-  const calcClick = (index:number, length: number) =>{
-    console.log("JR NOTE: calculating if shold click", Math.floor(length/3), index,Math.floor(length/3) % index === 0)
-    return (Math.floor(length/3) % index === 0);
-  }
+  const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc cursus libero et nunc finibus, in commodo erat porta. Phasellus pellentesque vehicula volutpat. Vivamus pulvinar dui ut orci sagittis mattis. Nam rhoncus feugiat eros sed efficitur. Nulla id tellus at elit bibendum molestie. Donec maximus, purus in semper hendrerit, tortor ex ultricies dui, eu ultrices nunc purus at dui. Sed vel sem sed risus tincidunt malesuada eu nec velit. Quisque vel purus nec tellus condimentum iaculis. Nam non facilisis tellus. Suspendisse iaculis nisl in orci ornare semper.";
 
   return (
     <Fragment>
-      {test_words.map((word, index) => (
-        <WordThought shouldClick={calcClick(index, test_words.length)} clickAction={calcClick(index, test_words.length)?clickAction: undefined} key={"word"+index} text={word} rand={rand}></WordThought>
-    ))}
+      <WordThoughtController rand={rand} clickAction={clickAction} text={lorem}></WordThoughtController>
     {test_images.map((src, index) => (
         <PictureThought key={"pic"+index} src={src} rand={rand}></PictureThought>
     ))}
