@@ -1,5 +1,8 @@
 bUG: text IS working but isn't randomizing what file was chosen on click
+(is it because the WordThoughtController isn't rerendering?
+)
 
+it IS rerendering.
 
 
 --do images
@@ -7,3 +10,4 @@ bUG: text IS working but isn't randomizing what file was chosen on click
 
 -make it so it takes in a keyword and grabs BOTH the file list from the keyword and the base level stuff
 -make a yellow info token that's just harry potter and discworld 
+--add mudcrab to our beastiary
