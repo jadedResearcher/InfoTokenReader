@@ -1,3 +1,7 @@
+import Strife from './Strife.ttf';
+import mist0 from './mist0.png';
+import mist1 from './mist1.png';
+
 import './App.css';
 import ShitpostRoot from "./Shitposting/ShitpostRoot";
 
