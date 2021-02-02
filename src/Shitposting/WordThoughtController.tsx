@@ -5,23 +5,8 @@ import WordThought from "./WordThought";
 import { Action } from '../utils/Types';
 import {root, word_thoughts} from '../utils/consts';
 
-const Bullshit = styled.div `
-  color: blue;
-`;
 
-type ClickableProps = {
-  shouldClick: boolean
-}
 
-const ClickableBullshit = styled.div<ClickableProps>`
-  color: ${props => props.shouldClick? 'red': 'blue'};
-  cursor: ${props => props.shouldClick? 'pointer': 'auto'};
-  background: ${props => {
-    console.log("JR NOTE: in style, props is", props);
-    return props.shouldClick? 'pointer': 'auto'}
-  }
-
-`;
 
 type WordControllerProps = {
   rand: SeededRandom,

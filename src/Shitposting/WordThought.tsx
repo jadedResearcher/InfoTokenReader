@@ -3,9 +3,6 @@ import styled from '@emotion/styled';
 import {Fragment} from 'react';
 import { Action } from '../utils/Types';
 
-const Bullshit = styled.div `
-  color: blue;
-`;
 
 type ClickableProps = {
   shouldClick: boolean,
@@ -13,7 +10,7 @@ type ClickableProps = {
 }
 
 const ClickableBullshit = styled.div<ClickableProps>`
-  color: ${props => props.shouldClick? 'red': 'blue'};
+  color: ${props => props.shouldClick? 'red': 'white'};
   cursor: ${props => props.shouldClick? 'pointer': 'auto'};
   position: ${props => props.rand.getRandomElementFromArray(["fixed","absolute","relative"])};
   top: ${props => `${props.rand.getRandomNumberBetween(0,1000)}px`};
