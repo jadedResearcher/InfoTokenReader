@@ -10,13 +10,14 @@ type ClickableProps = {
 }
 
 const ClickableBullshit = styled.div<ClickableProps>`
-  color: ${props => props.shouldClick? 'red': 'white'};
+  color: white
   cursor: ${props => props.shouldClick? 'pointer': 'auto'};
   position: ${props => props.rand.getRandomElementFromArray(["fixed","absolute","relative"])};
   top: ${props => `${props.rand.getRandomNumberBetween(0,1000)}px`};
   left: ${props => `${props.rand.getRandomNumberBetween(0,1000)}px`};
   text-align: ${props => props.rand.getRandomElementFromArray(["left","right","center"])};
   font-size: ${props => `${props.rand.getRandomNumberBetween(12,48)}px`};
+  padding: ${props => `${props.rand.getRandomNumberBetween(3,30)}px`};
 `;
 
 type WordProps = {
@@ -30,7 +31,7 @@ const WordThought = (props:WordProps)=> {
   const {text, rand, clickAction, shouldClick} = props;
   return (
     <Fragment>
-      <ClickableBullshit rand={rand} shouldClick={shouldClick} onClick={()=>{return clickAction?clickAction():null}}>{text} </ClickableBullshit>
+      <ClickableBullshit className={shouldClick?'pulse_animated':'not-link'} rand={rand} shouldClick={shouldClick} onClick={()=>{return clickAction?clickAction():null}}>{text} </ClickableBullshit>
     </Fragment>
   );
 }
