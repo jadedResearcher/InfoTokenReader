@@ -1,7 +1,7 @@
 import { callbackify } from 'util';
 import SeededRandom from './SeededRandom';
 import {FileCallback} from './Types';
-import {word_thoughts, image_thoughts, audio_thoughts, folder_index} from './consts';
+import {word_thoughts, audio_thoughts, folder_index, picture_thoughts} from './consts';
 export default class FileUtil{
     rand: SeededRandom;
     folder_json:any;
@@ -29,7 +29,7 @@ export default class FileUtil{
                 that.folder_json = JSON.parse(Http.responseText)["folders"];
                 console.log("JR NOTE: folder json", that.folder_json);
                 const words = that.folder_json[word_thoughts]["folders"][that.search_term]["files"];
-                const pics = that.folder_json[image_thoughts]["folders"][that.search_term]["files"];
+                const pics = that.folder_json[picture_thoughts]["folders"][that.search_term]["files"];
                 const audio = that.folder_json[audio_thoughts]["folders"][that.search_term]["files"];
 
                 that.callback(words, pics, audio);

@@ -10,7 +10,7 @@ type ClickableProps = {
 }
 
 const ClickableBullshit = styled.div<ClickableProps>`
-  color: white
+  color: white;
   cursor: ${props => props.shouldClick? 'pointer': 'auto'};
   position: ${props => props.rand.getRandomElementFromArray(["fixed","absolute","relative"])};
   top: ${props => `${props.rand.getRandomNumberBetween(0,1000)}px`};

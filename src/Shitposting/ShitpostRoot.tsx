@@ -1,7 +1,7 @@
 import SeededRandom from '../utils/SeededRandom';
 import styled from '@emotion/styled';
 import WordThoughtController from "./WordThoughtController";
-import PictureThought from "./PictureThought";
+import PictureThoughtController from "./PictureThoughtController";
 import {useState, useEffect, Fragment} from 'react';
 import FileUtil from "../utils/FileUtil";
 const TestDiv = styled.div `
@@ -48,9 +48,8 @@ function ShitpostRoot() {
   return (
       <Fragment>
         <WordThoughtController search_term={search_term} rand={rand} clickAction={clickAction} fileList={word_file_list}></WordThoughtController>
-      {test_images.map((src, index) => (
-          <PictureThought key={"pic"+index} src={src} rand={rand}></PictureThought>
-      ))}
+        <PictureThoughtController search_term={search_term} rand={rand} clickAction={clickAction} fileList={pic_file_list}></PictureThoughtController>
+
       </Fragment>
     );
   }
