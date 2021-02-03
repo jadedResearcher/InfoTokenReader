@@ -1,7 +1,7 @@
--have links have the red shadow instead of red text.
---do images (including deep frying)
+--deep fry images
 -so random sound on click
--BUG? mist doesn't show up on server (but font does)
+-BUG? mist doesn't show up on server (but font does) (doesn't matter if i make it absolute urls...weird)
 
 -make it so it takes in a keyword
 -make a yellow info token that's just harry potter and discworld 
+-have pink be swamp and witches and necromancers and liches and also ODIN
