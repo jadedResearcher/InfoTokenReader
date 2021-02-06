@@ -3,6 +3,7 @@ import mist1 from './mist1.png';
 
 import './App.css';
 import ShitpostRoot from "./Shitposting/ShitpostRoot";
+import Translator from "./42Translator/translator";
 
 function startbgmusic(){
   console.log("click first");
@@ -20,6 +21,7 @@ function App() {
   return (
     <div className="App">
       <ShitpostRoot/>
+      <Translator/>
     </div>
   );
 }
