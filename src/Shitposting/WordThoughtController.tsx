@@ -26,10 +26,8 @@ const WordThoughtController = (props:WordControllerProps)=> {
   
   
 const shitPostWords =()=>{
-  console.log("shit post words", fileList.length, fileList);
-  console.log(rand.nextDouble());//check rand
+  rand.nextDouble();//eat rand
   const file = rand.getRandomElementFromArray(fileList);
-  console.log("JR NOTE: file chosen is", file);
   const Http = new XMLHttpRequest();
   const url=root + word_thoughts + "/" +search_term + "/" + file;
   Http.open("GET", url);
@@ -56,10 +54,8 @@ const shitPostWords =()=>{
   }
 
   useEffect(() => {
-    console.log("shit post words use effect");
     shitPostWords();
   },[rand]);
-  console.log("rendering word thought controller");
 
   return (
     <Fragment>

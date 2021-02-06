@@ -22,7 +22,7 @@ const PictureThoughtController = (props:WordControllerProps)=> {
   
   
 const shitPostPic =()=>{
-  console.log("shit post words", fileList.length, fileList);
+  console.log("shit post pics", fileList.length, fileList);
   console.log(rand.nextDouble());//check rand
   const max = rand.getRandomNumberBetween(1,3);
   let tmp = [];
@@ -36,10 +36,8 @@ const shitPostPic =()=>{
 
 
   useEffect(() => {
-    console.log("shit post words use effect");
     shitPostPic();
   },[rand]);
-  console.log("rendering word thought controller");
 
   return (
     <Fragment>

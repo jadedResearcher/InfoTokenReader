@@ -9,7 +9,6 @@ const TestDiv = styled.div `
 `;
 
 function ShitpostRoot() {
-  const test_images = ["PicturesThoughts/beastiary/4.png"];
   let search_term = "beastiary"
   const [rand, setRand] = useState<SeededRandom>(new SeededRandom(13));
   const [seed, setSeed] = useState(19);

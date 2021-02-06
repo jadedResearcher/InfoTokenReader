@@ -36,7 +36,6 @@ const PictureThought = (props:PictureProps)=> {
   const {src, rand, clickAction, search_term} = props;
   const url=root + picture_thoughts + "/" +search_term + "/" + src;
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [rendered, setRendered] = useState(false);
 
 
   
@@ -57,10 +56,9 @@ const deepfriedCanvas = (img: HTMLImageElement, canvas: HTMLCanvasElement) => {
   for(let i = 0; i<num_layers; i++){
       deep_fry_options[rand.getRandomNumberBetween(0,deep_fry_options.length-1)](canvas);
   }
-  setRendered(true);
 }
 
-const updateCanvas =(canvas: HTMLCanvasElement) =>{
+const updateCanvas =(canvas: HTMLCanvasElement,current_src:string) =>{
   console.log("JR NOTE: updateCanvas, canvasRef.current is", canvas);
   const ctx = canvas.getContext('2d');
   if(!ctx){
@@ -69,7 +67,7 @@ const updateCanvas =(canvas: HTMLCanvasElement) =>{
   }
 
   var img = new Image();
-  img.src = root  + picture_thoughts + "/" + search_term + "/" + src;
+  img.src = root  + picture_thoughts + "/" + search_term + "/" + current_src;
   console.log("JR NOTE: made new image with src", img.src);
   img.onload = ()=> {
     console.log("JR NOTE: image has loaded")
@@ -78,13 +76,11 @@ const updateCanvas =(canvas: HTMLCanvasElement) =>{
 }
 
 useEffect(() =>{
-  if(!rendered){
     console.log("JR NOTE: going to update canvas");
     if(canvasRef.current){
-    updateCanvas(canvasRef.current);
+    updateCanvas(canvasRef.current, src);
     }
-  }
-}, [canvasRef])
+}, [canvasRef, src])
 
 
 
