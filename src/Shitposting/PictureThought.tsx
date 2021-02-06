@@ -1,6 +1,6 @@
 import SeededRandom from '../utils/SeededRandom';
 import styled from '@emotion/styled';
-import {Fragment, RefObject, SyntheticEvent, useRef} from 'react';
+import {Fragment, RefObject, useRef, useState, useEffect} from 'react';
 import { Action } from '../utils/Types';
 import { root,picture_thoughts } from '../utils/consts';
 import deep_fry_options from "../utils/DeepFryer";
@@ -36,6 +36,7 @@ const PictureThought = (props:PictureProps)=> {
   const {src, rand, clickAction, search_term} = props;
   const url=root + picture_thoughts + "/" +search_term + "/" + src;
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [rendered, setRendered] = useState(false);
 
 
   
@@ -56,25 +57,36 @@ const deepfriedCanvas = (img: HTMLImageElement, canvas: HTMLCanvasElement) => {
   for(let i = 0; i<num_layers; i++){
       deep_fry_options[rand.getRandomNumberBetween(0,deep_fry_options.length-1)](canvas);
   }
+  setRendered(true);
 }
 
-const updateCanvas =() =>{
-  if(!canvasRef.current){
-    return;
-  }
-  const ctx = canvasRef.current.getContext('2d');
+const updateCanvas =(canvas: HTMLCanvasElement) =>{
+  console.log("JR NOTE: updateCanvas, canvasRef.current is", canvas);
+  const ctx = canvas.getContext('2d');
   if(!ctx){
+    console.log("JR NOTE: returning cuz no canvas")
     return;
   }
 
   var img = new Image();
-  img.src = src;
+  img.src = root  + picture_thoughts + "/" + search_term + "/" + src;
+  console.log("JR NOTE: made new image with src", img.src);
   img.onload = ()=> {
+    console.log("JR NOTE: image has loaded")
+      deepfriedCanvas(img, canvas);
+    }
+}
+
+useEffect(() =>{
+  if(!rendered){
+    console.log("JR NOTE: going to update canvas");
     if(canvasRef.current){
-      deepfriedCanvas(img, canvasRef.current);
+    updateCanvas(canvasRef.current);
     }
   }
-}
+}, [canvasRef])
+
+
 
 
   console.log("JR NOTE: i'm a picture thought and my src is ", url)

@@ -1,4 +1,4 @@
-BUG: canvas is empty, but i thought the image had loaded...
+BUG: why is it always fire?
 --deep fry images (the util is in, just call it the way thought controller does)
 -so random sound on click
 -BUG? mist doesn't show up on server (but font does) (doesn't matter if i make it absolute urls...weird)
