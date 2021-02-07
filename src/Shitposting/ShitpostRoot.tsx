@@ -9,7 +9,13 @@ const TestDiv = styled.div `
 `;
 
 function ShitpostRoot() {
-  let search_term = "beastiary"
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  let search_term = "beastiary";
+  const tmp_term = urlParams.get('search_term');
+  if(tmp_term){
+    search_term = tmp_term;
+  }
   const [rand, setRand] = useState<SeededRandom>(new SeededRandom(13));
   const [seed, setSeed] = useState(19);
   const [loaded, setLoaded] = useState(false);
@@ -39,6 +45,8 @@ function ShitpostRoot() {
     console.log("JR NOTE: using effect to change rand", seed);
     setRand(new SeededRandom(rand.getRandomNumberBetween(0,4294967296)));
   },[seed]);
+
+ 
 
 
   if(!loaded){
