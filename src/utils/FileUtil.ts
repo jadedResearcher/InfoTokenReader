@@ -30,7 +30,7 @@ export default class FileUtil{
                 console.log("JR NOTE: folder json", that.folder_json);
                 const words = that.folder_json[word_thoughts]["folders"][that.search_term]["files"];
                 const pics = that.folder_json[picture_thoughts]["folders"][that.search_term]["files"];
-                const audio = that.folder_json[audio_thoughts]["folders"][that.search_term]["files"];
+                const audio = that.folder_json[audio_thoughts]["folders"]["files"]; //doesn't do search
 
                 that.callback(words, pics, audio);
             }
