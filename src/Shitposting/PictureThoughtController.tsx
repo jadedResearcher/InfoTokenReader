@@ -22,13 +22,10 @@ const PictureThoughtController = (props:WordControllerProps)=> {
   
   
 const shitPostPic =()=>{
-  console.log("shit post pics", fileList.length, fileList);
-  console.log(rand.nextDouble());//check rand
   const max = rand.getRandomNumberBetween(1,3);
   let tmp = [];
   for(let i = 0; i<max; i++){
     const file = rand.getRandomElementFromArray(fileList);
-    console.log("JR NOTE: file chosen is", file);
     tmp.push(file);
   }
   setSrcList(tmp);

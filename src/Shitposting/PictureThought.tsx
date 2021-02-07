@@ -59,24 +59,19 @@ const deepfriedCanvas = (img: HTMLImageElement, canvas: HTMLCanvasElement) => {
 }
 
 const updateCanvas =(canvas: HTMLCanvasElement,current_src:string) =>{
-  console.log("JR NOTE: updateCanvas, canvasRef.current is", canvas);
   const ctx = canvas.getContext('2d');
   if(!ctx){
-    console.log("JR NOTE: returning cuz no canvas")
     return;
   }
 
   var img = new Image();
   img.src = root  + picture_thoughts + "/" + search_term + "/" + current_src;
-  console.log("JR NOTE: made new image with src", img.src);
   img.onload = ()=> {
-    console.log("JR NOTE: image has loaded")
       deepfriedCanvas(img, canvas);
     }
 }
 
 useEffect(() =>{
-    console.log("JR NOTE: going to update canvas");
     if(canvasRef.current){
     updateCanvas(canvasRef.current, src);
     }
@@ -85,7 +80,6 @@ useEffect(() =>{
 
 
 
-  console.log("JR NOTE: i'm a picture thought and my src is ", url)
   return (
     <Fragment>
       <ClickableBullshit width="400" height="400" ref={canvasRef} className={'pulse_animated'} rand={rand} onClick={()=>{return clickAction()}}/>

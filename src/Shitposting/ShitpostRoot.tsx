@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 import WordThoughtController from "./WordThoughtController";
 import PictureThoughtController from "./PictureThoughtController";
 import {useState, useEffect, Fragment} from 'react';
+import { root,audio_thoughts } from '../utils/consts';
+
 import FileUtil from "../utils/FileUtil";
 const TestDiv = styled.div `
   color: red;
@@ -23,9 +25,18 @@ function ShitpostRoot() {
   const [pic_file_list, setPicFileList] = useState<string[]>([]);
   const [sound_file_list, setSoundFileList] = useState<string[]>([]);
 
+  const randomSound = () =>{
+    const file = rand.getRandomElementFromArray(sound_file_list);
+    console.log("chosen file ", file);
+    const url=root + audio_thoughts + "/" + file;
+    const audioElement = new Audio(url);
+    audioElement.play();
+}
+
 
   const clickAction = ()=>{
     console.log("JR NOTE, changing seed");
+    randomSound();
     setSeed(rand.getRandomNumberBetween(0, 1013904223))
   };
 
@@ -33,6 +44,7 @@ function ShitpostRoot() {
     console.log("file util says its done", word_list.length, word_list);
     setWordFileList(word_list);
     setPicFileList(pic_list);
+    console.log("sound list is " , sound_list)
     setSoundFileList(sound_list);
     setLoaded(true);
   };

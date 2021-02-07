@@ -1,5 +1,5 @@
 
--so random sound on click
+-do random sound on click (not based on search term)
 -BUG? mist doesn't show up on server (but font does) (doesn't matter if i make it absolute urls...weird)
 
 -make it so it takes in a keyword

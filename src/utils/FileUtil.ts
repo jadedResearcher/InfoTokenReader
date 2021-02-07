@@ -25,12 +25,11 @@ export default class FileUtil{
 
         Http.onreadystatechange = function() {
             if((this.readyState ==4 && this.status == 200)){
-                console.log("JR NOTE: got response");
                 that.folder_json = JSON.parse(Http.responseText)["folders"];
-                console.log("JR NOTE: folder json", that.folder_json);
                 const words = that.folder_json[word_thoughts]["folders"][that.search_term]["files"];
                 const pics = that.folder_json[picture_thoughts]["folders"][that.search_term]["files"];
-                const audio = that.folder_json[audio_thoughts]["folders"]["files"]; //doesn't do search
+                const audio = that.folder_json[audio_thoughts]["files"]; //doesn't do search
+                console.log("JR NOTE: audio is",that.folder_json[audio_thoughts] )
 
                 that.callback(words, pics, audio);
             }
