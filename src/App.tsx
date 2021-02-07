@@ -18,10 +18,13 @@ document.addEventListener('click', startbgmusic);
 
 
 function App() {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const mode = urlParams.get('mode')
   return (
     <div className="App">
       <ShitpostRoot/>
-      <Translator/>
+      {mode==="42" ? <Translator/>:null}
     </div>
   );
 }

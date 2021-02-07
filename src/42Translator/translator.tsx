@@ -1,15 +1,5 @@
 import {useEffect, useState} from 'react';
 
-function binaryToWords(str:string) { 
-  if(str.match(/[10]{8}/g)){
-      var wordFromBinary = str.match(/([10]{8}|\s+)/g)?.map(function(fromBinary){
-          return String.fromCharCode(parseInt(fromBinary, 2) );
-      }).join('');
-      return wordFromBinary;
-  }
-}
-
-
 //TODO have this only if mode=42
 function Translator() {
   const [value, setValue] = useState("");
