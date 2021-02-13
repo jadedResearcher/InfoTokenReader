@@ -13,14 +13,15 @@ const TestDiv = styled.div `
 function ShitpostRoot() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  let search_term = "beastiary";
+  let [search_term, setSearchTerm] = useState<string>();
   const possible_search_terms = ["beastiary", "pink", "yellow", "qq"];
   const tmp_term = urlParams.get('search_term');
-  if(tmp_term){
-    search_term = tmp_term;
-  }else{
-    search_term = getRandomElementFromArray(possible_search_terms);
-    document.location.search = `?search_term=${search_term}`;
+  if(tmp_term && !search_term){
+    setSearchTerm(tmp_term);
+  }else if(!search_term){
+    const tmp  = getRandomElementFromArray(possible_search_terms);
+    setSearchTerm(tmp);
+    document.location.search = `?search_term=${tmp}`;
   }
   const [rand, setRand] = useState<SeededRandom>(new SeededRandom(13));
   const [seed, setSeed] = useState(19);
@@ -54,8 +55,10 @@ function ShitpostRoot() {
   };
 
   useEffect(() =>{
-    new FileUtil(rand,fileUtilCallback, search_term)
-  },[]);
+    if(search_term){
+      new FileUtil(rand,fileUtilCallback, search_term)
+    };
+  },[search_term]);
 
   useEffect(() =>{
     console.log("JR NOTE: using effect to change rand", seed);
@@ -67,7 +70,7 @@ function ShitpostRoot() {
 
   if(!loaded){
     return <div>loading</div>
-  }else{
+  }else if (search_term){
   return (
       <Fragment>
         <WordThoughtController search_term={search_term} rand={rand} clickAction={clickAction} fileList={word_file_list}></WordThoughtController>
@@ -75,6 +78,8 @@ function ShitpostRoot() {
 
       </Fragment>
     );
+  }else{
+    return <div>error</div>
   }
 }
 
