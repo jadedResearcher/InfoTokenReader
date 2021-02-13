@@ -4,7 +4,7 @@ import WordThoughtController from "./WordThoughtController";
 import PictureThoughtController from "./PictureThoughtController";
 import {useState, useEffect, Fragment} from 'react';
 import { root,audio_thoughts } from '../utils/consts';
-
+import {getRandomElementFromArray} from '../utils/NonSeededRandUtils';
 import FileUtil from "../utils/FileUtil";
 const TestDiv = styled.div `
   color: red;
@@ -14,9 +14,13 @@ function ShitpostRoot() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   let search_term = "beastiary";
+  const possible_search_terms = ["beastiary", "pink", "yellow", "qq"];
   const tmp_term = urlParams.get('search_term');
   if(tmp_term){
     search_term = tmp_term;
+  }else{
+    search_term = getRandomElementFromArray(possible_search_terms);
+    document.location.search = `?search_term=${search_term}`;
   }
   const [rand, setRand] = useState<SeededRandom>(new SeededRandom(13));
   const [seed, setSeed] = useState(19);

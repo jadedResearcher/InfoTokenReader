@@ -1,4 +1,4 @@
-
+import {getRandomNumberBetween} from './NonSeededRandUtils'
 
 
 const grayscale = function(canvas: HTMLCanvasElement) {
@@ -38,9 +38,7 @@ const threshold = function(canvas:HTMLCanvasElement) {
           ctx.putImageData(output, 0, 0);
 };
 
-const getRandomNumberBetween =(min: number, max:number) =>{
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+
 
 const blur = function(canvas: HTMLCanvasElement){
     kernel(canvas, [1/90,1/90,1/90,1/90,1/90,1/90,1/90,1/90,1/90]);
