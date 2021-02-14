@@ -1,0 +1,9 @@
+Cartridge Status: Effect unobserved. Hypothesis: gunpowder or other explosive element was necessary component. Gunpowder status: beyond current technological capabilities.
+Grenade Status: Effect unobserved. Hypothesis: gunpowder or other explosive element was necessary component. Gunpowder status: beyond current technological capabilities.
+Mace Status: Effect observed. Severe damage. Keitan raiders did not seem to enjoy it. Blunt force and piercing damage observed at head and trunk level.
+Mailaise Status: Effect partially observed. Bugs caught. Keitan raiders did not appear to notice.
+Mine Status:  Effect unobserved. Hypothesis: gunpowder or other explosive elmeent was necessary component. Gunpowder status: beyond current technological capabilities.
+Pitfall Status: Effect observed. Minor damage. Keitan raiders did not seem to enjoy it. Blunt force fall damage to ankles and slow down from crawling out of the pit observed.
+Pressure Status: Effect partially observed. Pressure detection successful. Keitan raiders did not appear to notice. Hypothesis: gunpowder or other explosive elmeent was necessary component. Gunpowder status: beyond current technological capabilities.
+Punji Status: Effect observed. Major damage. Keitan raiders did not seem to enjoy it.  Piercing damage to random body parts compacted with blunt force from fall damage.
+Tiger Trap Status: Effect observed. Severe damage. Keitan raiders did not seem to enjoy it.  Blunt force and piercing damage observed at head and trunk level.

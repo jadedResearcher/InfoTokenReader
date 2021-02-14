@@ -1,0 +1,12 @@
+Motion detection is the process of detecting a change in the position of an object relative to its surroundings or a change in the surroundings relative to an object. Detection of Motion can be achieved by either mechanical or electronic methods.[1] When motion detection is accomplished by natural organisms, it is called motion perception.
+
+Motion can be detected by:
+
+Infrared (passive and active sensors)
+Optics (video and camera systems)
+Radio Frequency Energy (radar, microwave and tomographic motion detection)
+Sound (microphones and acoustic sensors)
+Vibration (triboelectric, seismic, and inertia-switch sensors)
+Magnetism (magnetic sensors and magnetometers)
+
+Current Status: 99.9999% of all motion detectors are not currently functional. Continue maintenance.

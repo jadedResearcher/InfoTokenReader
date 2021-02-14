@@ -14,7 +14,7 @@ function ShitpostRoot() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   let [search_term, setSearchTerm] = useState<string>();
-  const possible_search_terms = ["beastiary", "pink", "yellow", "qq"];
+  const [possible_search_terms, setPossibleSearchTerms] = useState(["beastiary", "pink", "yellow", "qq"]);
   const tmp_term = urlParams.get('search_term');
   if(tmp_term && !search_term){
     setSearchTerm(tmp_term);
@@ -23,6 +23,13 @@ function ShitpostRoot() {
     setSearchTerm(tmp);
     document.location.search = `?search_term=${tmp}`;
   }
+
+  const newTopic = () =>{
+    const tmp  = rand.getRandomElementFromArray(possible_search_terms);
+    setSearchTerm(tmp);
+    document.location.search = `?search_term=${tmp}`;
+    }
+
   const [rand, setRand] = useState<SeededRandom>(new SeededRandom(13));
   const [seed, setSeed] = useState(19);
   const [loaded, setLoaded] = useState(false);
@@ -42,6 +49,9 @@ function ShitpostRoot() {
   const clickAction = ()=>{
     console.log("JR NOTE, changing seed");
     randomSound();
+    if(rand.nextDouble() > 0.9){
+      newTopic();
+    }
     setSeed(rand.getRandomNumberBetween(0, 1013904223))
   };
 

@@ -1,0 +1,3 @@
+Similar to the mace, the tiger trap consisted of a weighted, spike-studded board. A tripwire would undo the catch on a rope, releasing a plank weighted with barbed metal spikes.
+
+maintence tasks: inspect and maintain board. inspect and maintain spikes. inspect and maintain tripwire tension.

@@ -1,0 +1,10 @@
+Closed-circuit television (CCTV), also known as video surveillance,[1][2] is the use of video cameras to transmit a signal to a specific place, on a limited set of monitors. It differs from broadcast television in that the signal is not openly transmitted, though it may employ point-to-point (P2P), point-to-multipoint (P2MP), or mesh wired or wireless links. Though almost all video cameras fit this definition, the term is most often applied to those used for surveillance in areas that require additional security or ongoing monitoring. Though videotelephony is seldom called "CCTV" one exception is the use of video in distance education, where it is an important tool.[3][4]
+
+Surveillance of the public using CCTV is common in many areas around the world. In recent years, the use of body worn video cameras has been introduced as a new form of surveillance, often used in law enforcement, with cameras located on a police officer's chest or head.[5] Video surveillance has generated significant debate about balancing its use with individuals' right to privacy even when in public.[
+
+
+camera status: 99.99% dysfunctional. continue maintenance.
+
+Fake security cameras (or dummy cameras, simulated cameras, decoy cameras) are non-functional surveillance cameras designed to fool intruders, or anyone who it is supposedly watching.[1] Those cameras are intentionally placed in a noticeable place, so passing people notice them and believe the area to be monitored by CCTV.
+
+The cheapest fake security cameras can be recognized by not having real lenses (the "lenses" are just an opaque piece of plastic) Other fake cameras include broken real cameras, motion sensors disguised as cameras, or empty camera housings. They may have flashing lights, or a motor to simulate pan-tilt motion, the former can be a giveaway that the camera is fake
