@@ -14,12 +14,13 @@ function ShitpostRoot() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   let [search_term, setSearchTerm] = useState<string>();
+  //just basic initial stuff
   const [possible_search_terms, setPossibleSearchTerms] = useState(["beastiary", "pink", "yellow", "qq"]);
   const tmp_term = urlParams.get('search_term');
   if(tmp_term && !search_term){
     setSearchTerm(tmp_term);
   }else if(!search_term){
-    const tmp  = getRandomElementFromArray(possible_search_terms);
+    const tmp  = "beastiary"; //not random anymore. stable.
     setSearchTerm(tmp);
     document.location.search = `?search_term=${tmp}`;
   }
@@ -55,8 +56,9 @@ function ShitpostRoot() {
     setSeed(rand.getRandomNumberBetween(0, 1013904223))
   };
 
-  const fileUtilCallback = (word_list:string[], pic_list:string[], sound_list:string[])=>{
+  const fileUtilCallback = (word_list:string[], pic_list:string[], sound_list:string[], search_term_list:string[])=>{
     console.log("file util says its done", word_list.length, word_list);
+    setPossibleSearchTerms(search_term_list);
     setWordFileList(word_list);
     setPicFileList(pic_list);
     console.log("sound list is " , sound_list)
