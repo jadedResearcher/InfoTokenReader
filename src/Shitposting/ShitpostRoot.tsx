@@ -50,14 +50,14 @@ function ShitpostRoot() {
   const clickAction = ()=>{
     console.log("JR NOTE, changing seed");
     randomSound();
-    if(rand.nextDouble() > 0.9){
+    if(rand.nextDouble() > 0.75){
       newTopic();
     }
     setSeed(rand.getRandomNumberBetween(0, 1013904223))
   };
 
   const fileUtilCallback = (word_list:string[], pic_list:string[], sound_list:string[], search_term_list:string[])=>{
-    console.log("file util says its done", word_list.length, word_list);
+    console.log("file util says its done",  search_term_list);
     setPossibleSearchTerms(search_term_list);
     setWordFileList(word_list);
     setPicFileList(pic_list);

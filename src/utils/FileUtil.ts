@@ -29,8 +29,8 @@ export default class FileUtil{
                 const words = that.folder_json[word_thoughts]["folders"][that.search_term]["files"];
                 const pics = that.folder_json[picture_thoughts]["folders"][that.search_term]["files"];
                 const audio = that.folder_json[audio_thoughts]["files"]; //doesn't do search
-                console.log("JR NOTE: audio is",that.folder_json[audio_thoughts] )
-                const audio = that.folder_json[word_thoughts]["folders"]; //doesn't do search
+                const list = Object.keys(that.folder_json[word_thoughts]["folders"]); //doesn't do search
+                console.log("JR NOTE: folders is",list )
 
                 that.callback(words, pics, audio, list);
             }
