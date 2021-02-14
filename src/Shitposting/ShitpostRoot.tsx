@@ -26,9 +26,10 @@ function ShitpostRoot() {
   }
 
   const newTopic = () =>{
+    console.log("looking for new topic in  ", possible_search_terms);
     const tmp  = rand.getRandomElementFromArray(possible_search_terms);
     setSearchTerm(tmp);
-    document.location.search = `?search_term=${tmp}`;
+    //document.location.search = `?search_term=${tmp}`;
     }
 
   const [rand, setRand] = useState<SeededRandom>(new SeededRandom(13));
@@ -85,6 +86,7 @@ function ShitpostRoot() {
   }else if (search_term){
   return (
       <Fragment>
+        <h1>{search_term}</h1>
         <WordThoughtController search_term={search_term} rand={rand} clickAction={clickAction} fileList={word_file_list}></WordThoughtController>
         <PictureThoughtController search_term={search_term} rand={rand} clickAction={clickAction} fileList={pic_file_list}></PictureThoughtController>
 
