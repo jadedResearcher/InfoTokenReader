@@ -156,7 +156,7 @@ const kernel= function(canvas: HTMLCanvasElement, weights: number[]){
       }
     }
     //sligtly offset each time
-    ctx.putImageData(output, getRandomNumberBetween(0,10), getRandomNumberBetween(0,10));
+    ctx.putImageData(output, 0, 0);
   }
 
 

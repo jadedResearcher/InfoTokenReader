@@ -37,10 +37,6 @@ pointer-events: none;
 filter: blur(30px);
 }
 
-.mist-baffle1{
-animation: jitter 80.0s steps(40) infinite;
-animation-delay: 1s;
-}
 
 
 .mist-top{
@@ -72,7 +68,7 @@ text-align: center;
 
 .pulse_animated{
   box-shadow: -10px 10px 20px #cccccc;
-  animation: pulseGlow 20.0s steps(20) infinite;
+  animation: pulseGlow 20.0s steps(40) infinite;
   cursor: pointer;
 }
 

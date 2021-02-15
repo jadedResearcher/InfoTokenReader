@@ -11,7 +11,7 @@ type ClickableProps = {
 }
 
 
-const ClickableBullshit = styled.canvas<ClickableProps>`
+const ClickableBullshit = styled.div<ClickableProps>`
   color: white;
   cursor: pointer;
   position: ${props => props.rand.getRandomElementFromArray(["fixed","absolute","relative"])};
@@ -19,7 +19,6 @@ const ClickableBullshit = styled.canvas<ClickableProps>`
   left: ${props => `${props.rand.getRandomNumberBetween(0,100)}%`};
   text-align: ${props => props.rand.getRandomElementFromArray(["left","right","center"])};
   font-size: ${props => `${props.rand.getRandomNumberBetween(12,48)}px`};
-  padding: ${props => `${props.rand.getRandomNumberBetween(3,30)}px`};
 `;
 
 type PictureProps = {
@@ -59,15 +58,15 @@ const deepfriedCanvas = (div: HTMLDivElement, img: HTMLImageElement, canvas: HTM
 
   canvas.setAttribute("width",`${width}`);
   canvas.setAttribute("height",`${height}`);
-  div.setAttribute("width",`${width}px`);
-  div.setAttribute("height",`${height}px`);
-  bgElement.setAttribute("width",`${width*2}px`);
-  bgElement.setAttribute("height",`${height}px`);
+  div.style.width = `${width}px`;
+  div.style.height = `${height}px`;
+  bgElement.setAttribute("width",`${width*4}`);
+  bgElement.setAttribute("height",`${height}`);
 
 
 
   ctx.drawImage(img, 0, 0,width,height);
-  const num_layers = rand.getRandomNumberBetween(1,4);
+  let num_layers = rand.getRandomNumberBetween(1,2);
 
   //deep fry it once
   for(let i = 0; i<num_layers; i++){
@@ -76,11 +75,26 @@ const deepfriedCanvas = (div: HTMLDivElement, img: HTMLImageElement, canvas: HTM
   //draw it to the first part of the bg
   bgctx.drawImage(canvas, 0,0);
   //deep fry it again
+  num_layers = rand.getRandomNumberBetween(1,2);
   for(let i = 0; i<num_layers; i++){
     deep_fry_options[rand.getRandomNumberBetween(0,deep_fry_options.length-1)](canvas);
   }
   //draw it to the second part
-  bgctx.drawImage(canvas, 0,width);
+  bgctx.drawImage(canvas, width,0);
+
+  num_layers = rand.getRandomNumberBetween(1,2);
+  for(let i = 0; i<num_layers; i++){
+    deep_fry_options[rand.getRandomNumberBetween(0,deep_fry_options.length-1)](canvas);
+  }
+  //draw it to the second part
+  bgctx.drawImage(canvas, width*2,0);
+
+  num_layers = rand.getRandomNumberBetween(1,4);
+  for(let i = 0; i<num_layers; i++){
+    deep_fry_options[rand.getRandomNumberBetween(0,deep_fry_options.length-1)](canvas);
+  }
+  //draw it to the second part
+  bgctx.drawImage(canvas, width*3,0);
 
   div.style.backgroundImage = `url(${bgElement.toDataURL()})`;
 }
@@ -100,7 +114,7 @@ const updateCanvas =(div: HTMLDivElement, current_src:string) =>{
 
 useEffect(() =>{
   if(onScreenRef.current){
-    updateCanvas(div, src);
+    updateCanvas(onScreenRef.current, src);
   }
 
 }, [src])
@@ -109,9 +123,9 @@ useEffect(() =>{
 
 
   return (
-    <Fragment>
-      <ClickableBullshit width="400" height="400" ref={onScreenRef} className={'pulse_animated, frameAnimation'} rand={rand} onClick={()=>{return clickAction()}}/>
-    </Fragment>
+    <span className="pulse_animated">
+      <ClickableBullshit ref={onScreenRef} className={'frameAnimation'} rand={rand} onClick={()=>{return clickAction()}}/>
+    </span>
   );
 }
 
