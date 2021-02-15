@@ -60,7 +60,7 @@ const deepfriedCanvas = (div: HTMLDivElement, img: HTMLImageElement, canvas: HTM
   canvas.setAttribute("height",`${height}`);
   div.style.width = `${width}px`;
   div.style.height = `${height}px`;
-  bgElement.setAttribute("width",`${width*4}`);
+  bgElement.setAttribute("width",`${width*3}`);
   bgElement.setAttribute("height",`${height}`);
 
 
@@ -89,12 +89,6 @@ const deepfriedCanvas = (div: HTMLDivElement, img: HTMLImageElement, canvas: HTM
   //draw it to the second part
   bgctx.drawImage(canvas, width*2,0);
 
-  num_layers = rand.getRandomNumberBetween(1,4);
-  for(let i = 0; i<num_layers; i++){
-    deep_fry_options[rand.getRandomNumberBetween(0,deep_fry_options.length-1)](canvas);
-  }
-  //draw it to the second part
-  bgctx.drawImage(canvas, width*3,0);
 
   div.style.backgroundImage = `url(${bgElement.toDataURL()})`;
 }
