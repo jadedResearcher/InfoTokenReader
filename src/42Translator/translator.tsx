@@ -46,3 +46,5 @@ function Translator() {
 }
 
 export default Translator;
+
+
