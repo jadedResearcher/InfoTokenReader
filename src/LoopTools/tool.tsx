@@ -26,12 +26,35 @@ function LoopTool() {
             return tmp_output;
         }
         //pick how many words to grab. 
-        const chunkSize = getRandomNumberBetween(5,25);
-        const new_tmp_output = tmp_output + " " + splitSources[current_source_index].splice(0,chunkSize).join(" ");
+        const chunkSize = getRandomNumberBetween(5,10);
+        let new_index = 0;
+        let found_new_source = false;
+
+        let new_tmp_output = tmp_output + " " + splitSources[current_source_index].splice(0,chunkSize).join(" ");
+        let padding_word_count = 0;
+        if(splitSources[current_source_index].length > 0){
+            //theres more words, so go through them all till you find one that is in common with other things.
+            for(let word in splitSources[current_source_index] ){
+                for(let i = 0; i<splitSources.length; i++){
+                    const found_index = splitSources[i].indexOf(word);
+                    console.log("JR NOTE: looking for word ", word, "foun dindex is ", found_index);
+                    if(found_index != 1){
+                        new_index = i;
+                        found_new_source = true;
+                        break;
+                    }
+                }
+            }
+        }
+        new_tmp_output = new_tmp_output + " " + splitSources[current_source_index].splice(0,padding_word_count).join(" ");
+        
+
 
         //before you call it again do this.
         let viable_sources = splitSources.filter((source) => source.length != 0);
-        let new_index = getRandomNumberBetween(0, viable_sources.length-1);
+        if(!found_new_source){
+            new_index = getRandomNumberBetween(0, viable_sources.length-1);
+        }
 
         return turnSplitSourcesToOutput(viable_sources, new_index,new_tmp_output );
     }
