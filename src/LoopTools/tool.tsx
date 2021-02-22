@@ -34,20 +34,27 @@ function LoopTool() {
         let padding_word_count = 0;
         if(splitSources[current_source_index].length > 0){
             //theres more words, so go through them all till you find one that is in common with other things.
-            for(let word in splitSources[current_source_index] ){
-                for(let i = 0; i<splitSources.length; i++){
+            for(let split_index = 0; split_index< splitSources[current_source_index].length; split_index++ ){
+                let word = splitSources[current_source_index][split_index];
+                padding_word_count ++;
+                for(let i = 1; i<splitSources.length; i++){
                     const found_index = splitSources[i].indexOf(word);
                     console.log("JR NOTE: looking for word ", word, "foun dindex is ", found_index);
                     if(found_index != 1){
+                        console.log("JR NOTE: the new source is ",i)
                         new_index = i;
                         found_new_source = true;
                         break;
                     }
                 }
+                if(found_new_source){
+                    break;
+                }
             }
         }
+
         new_tmp_output = new_tmp_output + " " + splitSources[current_source_index].splice(0,padding_word_count).join(" ");
-        
+    
 
 
         //before you call it again do this.
