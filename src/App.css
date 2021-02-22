@@ -66,6 +66,16 @@ padding: 20px;
 text-align: center;
 }
 
+textarea{
+  width: 500px;
+  height: 200px;
+}
+
+td{
+  vertical-align: top;
+  width: 25%;
+}
+
 .pulse_animated{
   box-shadow: -10px 10px 20px #cccccc;
   animation: pulseGlow 20.0s steps(40) infinite;
